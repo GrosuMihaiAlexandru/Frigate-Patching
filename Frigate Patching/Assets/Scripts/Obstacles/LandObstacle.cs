@@ -6,17 +6,20 @@ public class LandObstacle : MonoBehaviour, IEnemy
 {
     public float Damage { get; set; } = 10f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log("PlayerOnTop");
         if (collision.tag == "Player")
         {
-
+            Player player = collision.gameObject.GetComponent<Player>();
+            DamagePlayer(player);
         }
     }
 
     public void DamagePlayer(Player player)
     {
-        
+        player.TakeDamage(Damage);
+        player.MakePlayerInvincible(1f);
     }
 
 }

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
             velocityX = Input.GetAxisRaw("Horizontal") * player.moveSpeed;
             velocityY = Input.GetAxisRaw("Vertical") * player.moveSpeed;
             Vector2 velocity = Vector3.right * Time.deltaTime * GameManager.Instance.gameSpeed + new Vector3(velocityX, velocityY, 0);
-            Debug.Log(velocity);
+            //Debug.Log(velocity);
             gameObject.GetComponent<Rigidbody2D>().velocity = velocity;
         }
         else
