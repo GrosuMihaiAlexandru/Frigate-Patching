@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * Time.deltaTime * GameManager.Instance.gameSpeed * 5;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * Time.deltaTime * GameManager.Instance.gameSpeed * 100;
         }
         // Screen bounds X
         if (transform.position.x >= movingCamera.position.x + screenLimitX)
