@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6228452527997859957}
   - component: {fileID: 7411007840541064927}
-  - component: {fileID: -6969307565512026865}
-  - component: {fileID: 2231216163079568551}
+  - component: {fileID: 8578288896708659645}
+  - component: {fileID: 1471290354408748508}
   m_Layer: 0
   m_Name: BadItem
   m_TagString: Untagged
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 97f0fedecb210594c957d7916e3b9788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6969307565512026865
+--- !u!114 &8578288896708659645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 25
---- !u!61 &2231216163079568551
+--- !u!61 &1471290354408748508
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

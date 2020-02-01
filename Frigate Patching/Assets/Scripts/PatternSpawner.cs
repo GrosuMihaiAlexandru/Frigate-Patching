@@ -31,7 +31,7 @@ public class PatternSpawner : MonoBehaviour
 
     void Start()
     {
-        currentPosition = new Vector2(10, 0);
+        currentPosition = new Vector2(15, 0);
         nextPosition = new Vector2(currentPosition.x + levelLength, currentPosition.y);
 
         thisLevel = Instantiate(prefabs[SelectRandomPrefab(prefabs.Count - 1)], currentPosition, Quaternion.identity);
