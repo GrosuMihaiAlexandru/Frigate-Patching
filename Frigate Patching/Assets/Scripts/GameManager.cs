@@ -24,7 +24,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-   
+
+    void Start()
+    {
+        StartCoroutine(IncreaseGameSpeed());
+    }
+
     public void GiveCoins(int value)
     {
         coins += value;
@@ -41,5 +46,15 @@ public class GameManager : MonoBehaviour
     public void CollectCoins(int value)
     {
         collectedCoins += value;
+    }
+
+    private IEnumerator IncreaseGameSpeed()
+    {
+        while(gameSpeed < 5f)
+        {
+            yield return new WaitForSeconds(5f);
+            gameSpeed += 0.1f;
+            
+        }
     }
 }
