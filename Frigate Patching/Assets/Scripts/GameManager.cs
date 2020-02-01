@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 
     public float gameSpeed;
 
+    public int coins;
+
+    public int collectedCoins;
+
     void Awake()
     {
         if (Instance == null)
@@ -20,15 +24,22 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
+   
+    public void GiveCoins(int value)
     {
-        
+        coins += value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveCoins(int value)
     {
-        
+        if (value > coins)
+            coins = 0;
+        else
+            coins -= value;
+    }
+
+    public void CollectCoins(int value)
+    {
+        collectedCoins += value;
     }
 }

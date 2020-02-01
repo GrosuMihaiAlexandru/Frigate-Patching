@@ -6,10 +6,20 @@ using UnityEngine.UI;
 public class IngameUI : MonoBehaviour
 {
     public Image health;
+    public Text collectedCoins;
 
     void Start()
     {
-        UIEvents.OnPlayerTakeDamage += UpdateHealthBar;
+        GameEvents.OnPlayerHealthChanged += UpdateHealthBar;
+        GameEvents.OnItemCollected += CollectCoins;
+    }
+
+    public void CollectCoins(ICollectible collectible)
+    {
+        if (collectible is Coin)
+        {
+            collectedCoins.text = "Coins: " + GameManager.Instance.collectedCoins;
+        }
     }
 
     public void UpdateHealthBar(Player player)

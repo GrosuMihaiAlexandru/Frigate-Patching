@@ -10,10 +10,22 @@ public class Player : MonoBehaviour
     public float fireSpeed;
 
     public bool isPlayerInvincible;
+    public bool isPlayerAlive;
 
     void Start()
     {
-        
+        isPlayerAlive = true;
+        StartCoroutine(AutoDamage());
+    }
+
+    public void Heal(float amount)
+    {
+        health += amount;
+
+        if (health > 100)
+        {
+            health = 100;
+        }
     }
 
     public void TakeDamage(float amount)
@@ -27,13 +39,14 @@ public class Player : MonoBehaviour
             else
             {
                 health -= amount;
-                UIEvents.PlayerTakeDamage(this);
+                GameEvents.PlayerUpdateHealth(this);
             }
         }
     }
 
     public void Die()
     {
+        isPlayerAlive = false;
         Debug.Log("dead");
     }
 
@@ -42,7 +55,7 @@ public class Player : MonoBehaviour
         if (!isPlayerInvincible)
         {
             isPlayerInvincible = true;
-            //StartCoroutine(Blink());
+            StartCoroutine(Blinking());
             Invoke("MakePlayerVulnerable", time);
         }
     }
@@ -50,6 +63,27 @@ public class Player : MonoBehaviour
     private void MakePlayerVulnerable()
     {
         isPlayerInvincible = false;
+    }
+
+    private IEnumerator Blinking()
+    {
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        while (isPlayerInvincible)
+        {
+            renderer.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            renderer.enabled = true;
+            yield return new WaitForSeconds(0.2f);  
+        }
+    }
+
+    private IEnumerator AutoDamage()
+    {
+        while (isPlayerAlive)
+        {
+            TakeDamage(1);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
 }
