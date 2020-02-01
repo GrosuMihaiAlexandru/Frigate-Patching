@@ -9,17 +9,31 @@ public class IngameUI : MonoBehaviour
     public Image bossHealth;
     public Text collectedCoins;
 
-    void Start()
+    public GameObject bossHealthObject;
+
+    void Awake()
     {
         GameEvents.OnPlayerHealthChanged += UpdateHealthBar;
         GameEvents.OnItemCollected += CollectCoins;
         GameEvents.OnDragonSpawn += DisplayDragonHealth;
+        GameEvents.OnDragonHealthChanged += UpdateDragonHealth;
+        GameEvents.OnDragonDefeat += HideDragonHealth;
     }
 
     public void DisplayDragonHealth(Dragon dragon)
     {
-        bossHealth.enabled = true;
-        bossHealth.fillAmount = ReMap(dragon.Health, 0, 100, 0, 1);
+        bossHealthObject.SetActive(true);
+        bossHealth.fillAmount = ReMap(dragon.health, 0, 100, 0, 1);
+    }
+
+    public void UpdateDragonHealth(Dragon dragon)
+    {
+        bossHealth.fillAmount = ReMap(dragon.health, 0, 100, 0, 1);
+    }
+
+    public void HideDragonHealth(Dragon dragon)
+    {
+        bossHealthObject.SetActive(false);
     }
 
     public void CollectCoins(ICollectible collectible)

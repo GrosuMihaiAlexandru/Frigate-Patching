@@ -172,9 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a1393f39166a44fb36b1c7f1539748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   damage: 50
   flySpeed: 2
   screenLimitY: 2.5
+  fireballWaitTime: 1
+  fireballSpawnPos: {fileID: 5554579837495316765}
 --- !u!114 &1564926042
 MonoBehaviour:
   m_ObjectHideFlags: 0

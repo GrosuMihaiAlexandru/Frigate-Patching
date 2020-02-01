@@ -45,4 +45,12 @@ public class GameEvents : MonoBehaviour
             OnDragonHealthChanged(dragon);
         }
     }
+
+    public static void DragonDefeated(Dragon dragon)
+    {
+        if (OnDragonDefeat != null)
+        {
+            OnDragonDefeat(dragon);
+        }
+    }
 }

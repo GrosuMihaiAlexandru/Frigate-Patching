@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dragon : MonoBehaviour, IEnemy
 {
-    public float Health = 100f;
+    public float health = 100f;
 
     private BulletLauncher launcher;
     private Animator animator;
@@ -16,6 +16,7 @@ public class Dragon : MonoBehaviour, IEnemy
     public float fireballWaitTime = 5f;
 
     private bool flyingUp;
+    private bool isAlive;
 
     public Transform fireballSpawnPos;
 
@@ -37,7 +38,10 @@ public class Dragon : MonoBehaviour, IEnemy
 
     void Start()
     {
+        isAlive = true;
         StartCoroutine(ShootFireball());
+        StartCoroutine(AutoDamage());
+        GameEvents.DragonSpawn(this);
     }
 
     void Update()
@@ -63,9 +67,18 @@ public class Dragon : MonoBehaviour, IEnemy
         player.MakePlayerInvincible(1f);
     }
 
+    private IEnumerator AutoDamage()
+    {
+        while (isAlive)
+        {
+            TakeDamage(1);
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
     private IEnumerator ShootFireball()
     {
-        while(true)
+        while(isAlive)
         {
             yield return new WaitForSeconds(fireballWaitTime);
             animator.SetBool("ShootFireball", true);
@@ -74,5 +87,28 @@ public class Dragon : MonoBehaviour, IEnemy
             animator.SetBool("ShootFireball", false);
         }
         
+    }
+
+    public void TakeDamage(float amount)
+    {
+        if (health - amount < 0)
+        {
+            health = 0;
+            isAlive = false;
+            GameEvents.DragonDefeated(this);
+            screenLimitY = 10f;
+            Invoke("AutoDestroy", 2.5f);
+            flySpeed = 5f;
+        }
+        else
+        {
+            health -= amount;
+            GameEvents.DragonUpdateHealth(this);
+        }
+    }
+
+    private void AutoDestroy()
+    {
+        Destroy(gameObject);
     }
 }
