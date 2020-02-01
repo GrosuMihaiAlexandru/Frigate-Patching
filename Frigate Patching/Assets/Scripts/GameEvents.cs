@@ -13,6 +13,8 @@ public class GameEvents : MonoBehaviour
     public static Action<Dragon> OnDragonHealthChanged;
     public static Action<Dragon> OnDragonDefeat;
 
+    public static Action<Player> OnPlayerDeath;
+
     public static void PlayerUpdateHealth(Player player)
     {
         if (OnPlayerHealthChanged != null)
@@ -20,6 +22,14 @@ public class GameEvents : MonoBehaviour
             OnPlayerHealthChanged(player);
         }
 
+    }
+
+    public static void PlayerDied(Player player)
+    {
+        if (OnPlayerDeath != null)
+        {
+            OnPlayerDeath(player);
+        }
     }
 
     public static void ItemCollected(ICollectible collectible)

@@ -11,6 +11,8 @@ public class IngameUI : MonoBehaviour
 
     public GameObject bossHealthObject;
 
+    public GameObject gameOverScreen;
+
     void Awake()
     {
         GameEvents.OnPlayerHealthChanged += UpdateHealthBar;
@@ -18,6 +20,21 @@ public class IngameUI : MonoBehaviour
         GameEvents.OnDragonSpawn += DisplayDragonHealth;
         GameEvents.OnDragonHealthChanged += UpdateDragonHealth;
         GameEvents.OnDragonDefeat += HideDragonHealth;
+        GameEvents.OnPlayerDeath += DisplayGameOver;
+    }
+
+    public void OnDestroy()
+    {
+        GameEvents.OnPlayerHealthChanged -= UpdateHealthBar;
+        GameEvents.OnItemCollected -= CollectCoins;
+        GameEvents.OnDragonSpawn -= DisplayDragonHealth;
+        GameEvents.OnDragonHealthChanged -= UpdateDragonHealth;
+        GameEvents.OnDragonDefeat -= HideDragonHealth;
+    }
+
+    public void DisplayGameOver(Player player)
+    {
+        gameOverScreen.SetActive(true);
     }
 
     public void DisplayDragonHealth(Dragon dragon)
@@ -46,7 +63,7 @@ public class IngameUI : MonoBehaviour
 
     public void UpdateHealthBar(Player player)
     {
-        health.fillAmount = ReMap(player.health, 0, 100, 0, 1);
+        health.fillAmount = ReMap(player.health, 0, player.CalculateTotalHealth(), 0, 1);
     }
 
     private float ReMap(float s, float a1, float a2, float b1, float b2)

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BriefRepair : MonoBehaviour, ICollectible
 {
-    public float value = 25;
     Player player; 
 
 
@@ -20,7 +19,7 @@ public class BriefRepair : MonoBehaviour, ICollectible
     public void Collect()
     {
         Destroy(gameObject);
-        player.Heal(value);
+        player.Heal(player.CalculateTotalHealth() / 4);
         GameEvents.PlayerUpdateHealth(player);
     }
 }

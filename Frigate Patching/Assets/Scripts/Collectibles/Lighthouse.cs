@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lighthouse : MonoBehaviour, ICollectible
 {
-    public float value = 25;
     private Player player;
     private Animator animator;
 
@@ -26,7 +25,7 @@ public class Lighthouse : MonoBehaviour, ICollectible
     public void Collect()
     {
         animator.SetBool("Used", true);
-        player.Heal(value);
+        player.Heal(player.CalculateTotalHealth());
         GameEvents.PlayerUpdateHealth(player);
     }
 }

@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float health = 100f;
+    public float health;
+    public float baseHealth = 100;
+    public float healthPerLevel = 20;
+
+    public float damageDecreasePerLevel = 2;
 
     public float moveSpeed;
-    public float fireSpeed;
 
     public bool isPlayerInvincible;
     public bool isPlayerAlive;
 
     void Start()
     {
+        health = CalculateTotalHealth();
         isPlayerAlive = true;
         StartCoroutine(AutoDamage());
     }
@@ -22,17 +26,17 @@ public class Player : MonoBehaviour
     {
         health += amount;
 
-        if (health > 100)
+        if (health > CalculateTotalHealth())
         {
-            health = 100;
+            health = CalculateTotalHealth();
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float value)
     {
         if (!isPlayerInvincible)
         {
-            if (health - amount < 0)
+            if (health - CalculateDamageTaken(value) < 0)
             {
                 health = 0;
                 Die();
@@ -40,7 +44,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                health -= amount;
+                health -= CalculateDamageTaken(value);
                 GameEvents.PlayerUpdateHealth(this);
             }
         }
@@ -49,6 +53,8 @@ public class Player : MonoBehaviour
     public void Die()
     {
         isPlayerAlive = false;
+        Destroy(gameObject);
+        GameEvents.PlayerDied(this);
         Debug.Log("dead");
     }
 
@@ -83,9 +89,18 @@ public class Player : MonoBehaviour
     {
         while (isPlayerAlive)
         {
-            TakeDamage(1);
+            TakeDamage(damageDecreasePerLevel * PlayerStats.Instance.resistanceLevel + 1);
             yield return new WaitForSeconds(0.5f);
         }
     }
 
+    public float CalculateTotalHealth()
+    {
+        return baseHealth + healthPerLevel * PlayerStats.Instance.durabilityLevel;
+    }
+
+    public float CalculateDamageTaken(float value)
+    {
+        return value - damageDecreasePerLevel * PlayerStats.Instance.resistanceLevel;
+    }
 }
