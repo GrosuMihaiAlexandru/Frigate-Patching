@@ -4,8 +4,6 @@ using UnityEngine;
 
 public interface IEnemy
 {
-    float Damage { get; set; }
-
     void DamagePlayer(Player player);
 
 }

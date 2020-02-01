@@ -52,7 +52,7 @@ public class PatternSpawner : MonoBehaviour
 
             canDestroyLevel = true;
         }
-        Debug.Log(mainCamera.transform.position.x + " " + currentPosition.x);
+        //Debug.Log(mainCamera.transform.position.x + " " + currentPosition.x);
         if (canDestroyLevel && mainCamera.transform.position.x - currentPosition.x >= -1f)
         {
             Destroy(oldLevel);

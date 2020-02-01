@@ -6,12 +6,20 @@ using UnityEngine.UI;
 public class IngameUI : MonoBehaviour
 {
     public Image health;
+    public Image bossHealth;
     public Text collectedCoins;
 
     void Start()
     {
         GameEvents.OnPlayerHealthChanged += UpdateHealthBar;
         GameEvents.OnItemCollected += CollectCoins;
+        GameEvents.OnDragonSpawn += DisplayDragonHealth;
+    }
+
+    public void DisplayDragonHealth(Dragon dragon)
+    {
+        bossHealth.enabled = true;
+        bossHealth.fillAmount = ReMap(dragon.Health, 0, 100, 0, 1);
     }
 
     public void CollectCoins(ICollectible collectible)

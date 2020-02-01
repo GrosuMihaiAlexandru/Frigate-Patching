@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3093534128438258199}
   - component: {fileID: 2049463868873201940}
   - component: {fileID: 7322685008512595201}
+  - component: {fileID: 4631452860170430744}
   m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: b84e07434ee5d1f42a9dab115ee7e9f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.027662754, y: 0.85201824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.6666665, y: 4}
+  m_Size: {x: 4.2351246, y: 2.0525298}
   m_EdgeRadius: 0
 --- !u!114 &7322685008512595201
 MonoBehaviour:
@@ -120,3 +121,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f931d45384f3f54fbac3e17470ae7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &4631452860170430744
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867996348041516529}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12, y: -0.95}
+  serializedVersion: 2
+  m_Radius: 1.12

@@ -8,7 +8,6 @@ public class LandObstacle : MonoBehaviour, IEnemy
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("PlayerOnTop");
         if (collision.tag == "Player")
         {
             Player player = collision.gameObject.GetComponent<Player>();

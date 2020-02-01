@@ -9,6 +9,10 @@ public class GameEvents : MonoBehaviour
 
     public static Action<ICollectible> OnItemCollected;
 
+    public static Action<Dragon> OnDragonSpawn;
+    public static Action<Dragon> OnDragonHealthChanged;
+    public static Action<Dragon> OnDragonDefeat;
+
     public static void PlayerUpdateHealth(Player player)
     {
         if (OnPlayerHealthChanged != null)
@@ -23,6 +27,22 @@ public class GameEvents : MonoBehaviour
         if (OnItemCollected != null)
         {
             OnItemCollected(collectible);
+        }
+    }
+
+    public static void DragonSpawn(Dragon dragon)
+    {
+        if (OnItemCollected != null)
+        {
+            OnDragonSpawn(dragon);
+        }
+    }
+
+    public static void DragonUpdateHealth(Dragon dragon)
+    {
+        if (OnDragonHealthChanged != null)
+        {
+            OnDragonHealthChanged(dragon);
         }
     }
 }
