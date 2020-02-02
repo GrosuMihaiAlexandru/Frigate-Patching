@@ -20,5 +20,6 @@ public class Coin : MonoBehaviour, ICollectible
         Destroy(gameObject);
         GameManager.Instance.CollectCoins(value);
         GameEvents.ItemCollected(this);
+        AudioPlayer.Instance.PlayCoin();
     }
 }

@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
                     player.ammo--;
                     lastFire = Time.time;
                     launcher.FireBullet(projectileSpawnPos.position);
+                    AudioPlayer.Instance.PlayFire();
                 }
             }
         }

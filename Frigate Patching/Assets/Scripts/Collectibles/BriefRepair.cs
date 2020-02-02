@@ -21,5 +21,6 @@ public class BriefRepair : MonoBehaviour, ICollectible
         Destroy(gameObject);
         player.Heal(player.CalculateTotalHealth() / 4);
         GameEvents.PlayerUpdateHealth(player);
+        AudioPlayer.Instance.PlayRepair();
     }
 }

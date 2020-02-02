@@ -30,6 +30,7 @@ public class BadItem : MonoBehaviour, ICollectible
         player.TakeDamage(value);
         player.MakePlayerInvincible(1f);
         GameEvents.PlayerUpdateHealth(player);
+        AudioPlayer.Instance.PlayExplosion();
     }
 
     void DestroyObject()

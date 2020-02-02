@@ -27,5 +27,6 @@ public class Lighthouse : MonoBehaviour, ICollectible
         animator.SetBool("Used", true);
         player.Heal(player.CalculateTotalHealth());
         GameEvents.PlayerUpdateHealth(player);
+        AudioPlayer.Instance.PlayRepair();
     }
 }
