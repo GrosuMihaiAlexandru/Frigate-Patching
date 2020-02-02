@@ -7,10 +7,11 @@ public class Lighthouse : MonoBehaviour, ICollectible
     private Player player;
     private Animator animator;
 
-
+    public bool used;
     void Awake()
     {
         animator = GetComponent<Animator>();
+        used = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,9 +25,13 @@ public class Lighthouse : MonoBehaviour, ICollectible
 
     public void Collect()
     {
-        animator.SetBool("Used", true);
-        player.Heal(player.CalculateTotalHealth());
-        GameEvents.PlayerUpdateHealth(player);
-        AudioPlayer.Instance.PlayRepair();
+        if (!used)
+        {
+            used = true;
+            animator.SetBool("Used", true);
+            player.Heal(player.CalculateTotalHealth());
+            GameEvents.PlayerUpdateHealth(player);
+            AudioPlayer.Instance.PlayRepair();
+        }
     }
 }

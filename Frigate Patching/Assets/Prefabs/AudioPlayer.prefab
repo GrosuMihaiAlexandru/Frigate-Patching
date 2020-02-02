@@ -47,8 +47,9 @@ MonoBehaviour:
   fireSounds: {fileID: 8300000, guid: 991f9329c78365147a64c2499864a116, type: 3}
   explosionSound: {fileID: 8300000, guid: 7a47898cd12a75649afbbeda2a7a16d1, type: 3}
   coin: {fileID: 8300000, guid: ff69d8b9ca1333045b776a44d34810cd, type: 3}
-  cannon: {fileID: 8300000, guid: 991f9329c78365147a64c2499864a116, type: 3}
-  audioSource: {fileID: 0}
+  repair: {fileID: 8300000, guid: 486e39b4d7804384990f7ef4f4a59823, type: 3}
+  crash: {fileID: 8300000, guid: 60b3041fd4b88874cbe58c29e30d0e6d, type: 3}
+  lightning: {fileID: 8300000, guid: 6b2668a0838f2694e8239a81a04a86d9, type: 3}
 --- !u!82 &422700292660368933
 AudioSource:
   m_ObjectHideFlags: 0

@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f931d45384f3f54fbac3e17470ae7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLightning: 1

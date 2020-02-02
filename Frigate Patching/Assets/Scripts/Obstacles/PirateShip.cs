@@ -31,6 +31,7 @@ public class PirateShip : MonoBehaviour, IEnemy
     {
         player.TakeDamage(damage);
         player.MakePlayerInvincible(1f);
+        AudioPlayer.Instance.PlayCrash();
     }
 
     void AutoDestroy()

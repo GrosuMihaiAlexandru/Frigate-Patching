@@ -17,6 +17,8 @@ public class UpgradeMenu : MonoBehaviour
     public Text weaponUpgradePrice;
     public Text resistanceUpgradePrice;
 
+    public Text coins;
+
     void Start()
     {
         UpdateLevelDisplay();
@@ -42,6 +44,8 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpdateLevelDisplay()
     {
+        coins.text = GameManager.Instance.coins.ToString();
+
         if (PlayerStats.Instance.durabilityLevel == PlayerStats.Instance.maxLevel)
         {
             durabilityLevel.text = "Max";
