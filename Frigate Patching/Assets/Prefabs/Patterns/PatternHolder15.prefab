@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7093652111386636515}
   m_Layer: 0
-  m_Name: PlatformHolder15
+  m_Name: PatternHolder15
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -307,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 1650249557209554906, guid: 8a29e44df22640946bc8297216d22c65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 1650249557209554906, guid: 8a29e44df22640946bc8297216d22c65,
         type: 3}
