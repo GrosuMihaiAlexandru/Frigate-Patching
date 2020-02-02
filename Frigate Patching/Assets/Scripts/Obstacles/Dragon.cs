@@ -20,6 +20,9 @@ public class Dragon : MonoBehaviour, IEnemy
 
     public Transform fireballSpawnPos;
 
+    public static float nextDragonSpeed;
+    public static float nextDragonFireBall;
+    public static float nextDragonHealth;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,6 +45,9 @@ public class Dragon : MonoBehaviour, IEnemy
         StartCoroutine(ShootFireball());
         StartCoroutine(AutoDamage());
         GameEvents.DragonSpawn(this);
+        flySpeed = nextDragonSpeed;
+        fireballWaitTime = nextDragonFireBall;
+        health = nextDragonHealth;
     }
 
     void Update()
@@ -104,6 +110,12 @@ public class Dragon : MonoBehaviour, IEnemy
             screenLimitY = 10f;
             Invoke("AutoDestroy", 2.5f);
             flySpeed = 5f;
+            if (nextDragonSpeed < 8)
+                nextDragonSpeed += 1f;
+            if (nextDragonFireBall > 0.5)
+                nextDragonFireBall -= 0.25f;
+            if (nextDragonHealth < 200)
+                nextDragonHealth += 20;
         }
         else
         {

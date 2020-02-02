@@ -17,6 +17,16 @@ public class GameEvents : MonoBehaviour
 
     public static Action OnAmmoPickup;
 
+    public static Action OnFireAction;
+
+    public static void FireAction()
+    {
+        if (OnFireAction != null)
+        {
+            OnFireAction();
+        }
+    }
+
     public static void AmmoPickup()
     {
         if (OnAmmoPickup != null)

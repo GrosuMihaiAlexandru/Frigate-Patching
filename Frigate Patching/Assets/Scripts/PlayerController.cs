@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (player.ammo > 0)
                 {
+                    GameEvents.FireAction();
                     player.ammo--;
                     lastFire = Time.time;
                     launcher.FireBullet(projectileSpawnPos.position);
@@ -78,5 +80,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Shoot();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
     }
 }

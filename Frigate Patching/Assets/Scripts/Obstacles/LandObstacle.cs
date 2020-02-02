@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LandObstacle : MonoBehaviour
 {
-    public float Damage { get; set; } = 10f;
+    public float Damage { get; set; } = 20f;
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {

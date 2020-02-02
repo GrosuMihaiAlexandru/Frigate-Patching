@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void Start()
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
         StopCoroutine(IncreaseGameSpeed());
         gameSpeed = startingSpeed;
         StartCoroutine(IncreaseGameSpeed());
+        Dragon.nextDragonSpeed = 2;
+        Dragon.nextDragonFireBall = 2;
+        Dragon.nextDragonHealth = 100;
     }
 
     public void GiveCoins(int value)
