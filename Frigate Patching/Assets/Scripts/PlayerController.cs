@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Player player;
-    public GameObject bullet;
+
+    private BulletLauncher launcher;
+    public Transform projectileSpawnPos;
 
     public Transform movingCamera;
 
@@ -13,12 +15,15 @@ public class PlayerController : MonoBehaviour
     public float screenLimitY;
 
     private bool fired;
-    private float fireDelay;
+    private float fireDelay = 1f;
+
+    float lastFire;
 
     void Start()
     {
         player = gameObject.GetComponent<Player>();
         movingCamera = Camera.main.transform;
+        launcher = GetComponent<BulletLauncher>();
     }
 
     public void Move()
@@ -51,11 +56,27 @@ public class PlayerController : MonoBehaviour
         else if (transform.position.y <= -screenLimitY)
             transform.position = new Vector3(transform.position.x, -screenLimitY, transform.position.z);
     }
-    
+
+    public void Shoot()
+    {
+        if (Input.GetAxisRaw("Fire1") == 1f)
+        {
+            if (Time.time - lastFire > fireDelay)
+            {
+                if (player.ammo > 0)
+                {
+                    player.ammo--;
+                    lastFire = Time.time;
+                    launcher.FireBullet(projectileSpawnPos.position);
+                }
+            }
+        }
+
+    }
 
     void Update()
     {
         Move();
-        //Shoot();
+        Shoot();
     }
 }

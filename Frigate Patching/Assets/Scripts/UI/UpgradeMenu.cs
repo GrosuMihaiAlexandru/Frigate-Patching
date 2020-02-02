@@ -19,9 +19,7 @@ public class UpgradeMenu : MonoBehaviour
 
     void Start()
     {
-        durabilityLevel.text = PlayerStats.Instance.durabilityLevel.ToString();
-        weaponLevel.text = PlayerStats.Instance.weaponLevel.ToString();
-        resistanceLevel.text = PlayerStats.Instance.resistanceLevel.ToString();
+        UpdateLevelDisplay();
     }
 
     public void UpgradeDurability()
@@ -44,8 +42,40 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpdateLevelDisplay()
     {
-        durabilityLevel.text = PlayerStats.Instance.durabilityLevel.ToString();
-        weaponLevel.text = PlayerStats.Instance.weaponLevel.ToString();
-        resistanceLevel.text = PlayerStats.Instance.resistanceLevel.ToString();
+        if (PlayerStats.Instance.durabilityLevel == PlayerStats.Instance.maxLevel)
+        {
+            durabilityLevel.text = "Max";
+            durabilityUpgradePrice.text = "Upgrade Durability\nCost:";
+        }
+        else
+        {
+            durabilityLevel.text = PlayerStats.Instance.durabilityLevel.ToString();
+            durabilityUpgradePrice.text = "Upgrade Durability\nCost: " + PlayerStats.Instance.CalculateDurabilityPrice().ToString();
+        }
+
+        if (PlayerStats.Instance.weaponLevel == PlayerStats.Instance.maxLevel)
+        {
+            weaponLevel.text = "Max";
+            weaponUpgradePrice.text = "Upgrade Weapon\nCost:";
+
+        }
+        else
+        {
+            weaponLevel.text = PlayerStats.Instance.weaponLevel.ToString();
+            weaponUpgradePrice.text = "Upgrade Weapon\nCost: " + PlayerStats.Instance.CalculateWeaponPrice().ToString();
+        }
+
+        if (PlayerStats.Instance.resistanceLevel == PlayerStats.Instance.maxLevel)
+        {
+            resistanceLevel.text = "Max";
+            resistanceUpgradePrice.text = "Upgrade Durability\nCost:";
+
+        }
+        else
+        {
+            resistanceLevel.text = PlayerStats.Instance.resistanceLevel.ToString();
+            resistanceUpgradePrice.text = "Upgrade Resistance\nCost: " + PlayerStats.Instance.CalculateResistancePrice().ToString();
+        }
+
     }
 }

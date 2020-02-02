@@ -30,6 +30,8 @@ public class IngameUI : MonoBehaviour
         GameEvents.OnDragonSpawn -= DisplayDragonHealth;
         GameEvents.OnDragonHealthChanged -= UpdateDragonHealth;
         GameEvents.OnDragonDefeat -= HideDragonHealth;
+        GameEvents.OnPlayerDeath -= DisplayGameOver;
+
     }
 
     public void DisplayGameOver(Player player)

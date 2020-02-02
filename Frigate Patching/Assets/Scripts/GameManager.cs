@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public float gameSpeed;
+    public float startingSpeed = 1.5f;
 
     public int coins;
 
@@ -27,6 +28,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        StopCoroutine(IncreaseGameSpeed());
+        gameSpeed = startingSpeed;
         StartCoroutine(IncreaseGameSpeed());
     }
 

@@ -195,7 +195,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 390215983309806000}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4544357711041292958}
+        m_MethodName: UpgradeDurability
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1037456574201968294
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +468,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1885336004320079532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4544357711041292958}
+        m_MethodName: UpgradeResistance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1397337599168864115
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5659023090467138303
 RectTransform:
   m_ObjectHideFlags: 0
@@ -696,6 +718,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e60635ccd0b1af48a40fb3a9e8c4ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeDurability: {fileID: 6765090762488221083}
+  upgradeWeapon: {fileID: 471063332668447908}
+  upgradeResistance: {fileID: 7979424588355557113}
+  durabilityLevel: {fileID: 7880301806201132687}
+  weaponLevel: {fileID: 8104705579584955843}
+  resistanceLevel: {fileID: 6424865140474018585}
+  durabilityUpgradePrice: {fileID: 2818146038438550049}
+  weaponUpgradePrice: {fileID: 269149189809115764}
+  resistanceUpgradePrice: {fileID: 7500532140032863225}
 --- !u!1 &3125450850840386147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1181,7 @@ GameObject:
   - component: {fileID: 2670319919134955765}
   - component: {fileID: 4080004761952197454}
   - component: {fileID: 342951094428626857}
+  - component: {fileID: 4699356344959544426}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1289,6 +1321,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &4699356344959544426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348378458959832763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e36964e7aad9384180e54ee23d26146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5385473725617151690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,12 +1793,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 4544357711041292958}
+        m_MethodName: UpgradeWeapon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

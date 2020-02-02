@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class PirateShip : MonoBehaviour, IEnemy
 {
-    public float damage = 30f;
-    public float speed = 8;
+    public float damage = 35f;
+    public float flySpeed = 12;
     public float autoDestroyTime = 3f;
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
         Invoke("AutoDestroy", autoDestroyTime);
+    }
+
+    void Update()
+    {
+        transform.position += Vector3.left * Time.deltaTime * flySpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,15 +27,19 @@ public class Fireball : MonoBehaviour
         }
     }
 
+    public void DamagePlayer(Player player)
+    {
+        player.TakeDamage(damage);
+        player.MakePlayerInvincible(1f);
+    }
+
     void AutoDestroy()
     {
         Destroy(gameObject);
     }
 
-    public void DamagePlayer(Player player)
+    public void TakeDamage(Cannonball cannonball)
     {
         Destroy(gameObject);
-        player.TakeDamage(damage);
-        player.MakePlayerInvincible(1f);
     }
 }

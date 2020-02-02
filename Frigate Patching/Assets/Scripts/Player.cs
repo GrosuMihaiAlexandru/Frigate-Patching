@@ -15,11 +15,24 @@ public class Player : MonoBehaviour
     public bool isPlayerInvincible;
     public bool isPlayerAlive;
 
+    public int maxAmmo = 5;
+    public int ammo;
+    public float damage;
+
+    private Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
+        GameEvents.OnAmmoPickup += AddAmmo;
         health = CalculateTotalHealth();
         isPlayerAlive = true;
         StartCoroutine(AutoDamage());
+    }
+
+    void OnDestroy()
+    {
+        GameEvents.OnAmmoPickup -= AddAmmo;
     }
 
     public void Heal(float amount)
@@ -29,6 +42,11 @@ public class Player : MonoBehaviour
         if (health > CalculateTotalHealth())
         {
             health = CalculateTotalHealth();
+        }
+
+        if (health >= CalculateTotalHealth() / 2)
+        {
+            animator.SetBool("Damaged", false);
         }
     }
 
@@ -48,6 +66,10 @@ public class Player : MonoBehaviour
                 GameEvents.PlayerUpdateHealth(this);
             }
         }
+        if (health < CalculateTotalHealth() / 2)
+        {
+            animator.SetBool("Damaged", true);
+        }
     }
 
     public void Die()
@@ -62,6 +84,7 @@ public class Player : MonoBehaviour
     {
         if (!isPlayerInvincible)
         {
+            moveSpeed /= 2.5f;
             isPlayerInvincible = true;
             StartCoroutine(Blinking());
             Invoke("MakePlayerVulnerable", time);
@@ -70,6 +93,7 @@ public class Player : MonoBehaviour
 
     private void MakePlayerVulnerable()
     {
+        moveSpeed *= 2.5f;
         isPlayerInvincible = false;
     }
 
@@ -102,5 +126,11 @@ public class Player : MonoBehaviour
     public float CalculateDamageTaken(float value)
     {
         return value - damageDecreasePerLevel * PlayerStats.Instance.resistanceLevel;
+    }
+
+    private void AddAmmo()
+    {
+        if (ammo < maxAmmo)
+            ammo++;
     }
 }

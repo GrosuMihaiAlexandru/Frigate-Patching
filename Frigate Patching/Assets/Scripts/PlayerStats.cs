@@ -32,28 +32,52 @@ public class PlayerStats : MonoBehaviour
 
     public void UpgradeDurability()
     {
-        if (GameManager.Instance.coins > basePrice * Mathf.Pow(priceMultiplier, durabilityLevel))
+        if (GameManager.Instance.coins > CalculateDurabilityPrice())
         {
-            GameManager.Instance.RemoveCoins((int)(basePrice * Mathf.Pow(priceMultiplier, durabilityLevel)));
-            durabilityLevel++;
+            if (durabilityLevel < maxLevel)
+            {
+                GameManager.Instance.RemoveCoins((int)(CalculateDurabilityPrice()));
+                durabilityLevel++;
+            }
         }
     }
 
     public void UpgradeWeapon()
     {
-        if (GameManager.Instance.coins > basePrice * Mathf.Pow(priceMultiplier, weaponLevel))
+        if (GameManager.Instance.coins > CalculateWeaponPrice())
         {
-            GameManager.Instance.RemoveCoins((int)(basePrice * Mathf.Pow(priceMultiplier, weaponLevel)));
-            weaponLevel++;
+            if (weaponLevel < maxLevel)
+            {
+                GameManager.Instance.RemoveCoins((int)CalculateWeaponPrice());
+                weaponLevel++;
+            }
         }
     }
 
     public void UpgradeResistance()
     {
-        if (GameManager.Instance.coins > basePrice * Mathf.Pow(priceMultiplier, resistanceLevel))
+        if (GameManager.Instance.coins > CalculateResistancePrice())
         {
-            GameManager.Instance.RemoveCoins((int)(basePrice * Mathf.Pow(priceMultiplier, resistanceLevel)));
-            resistanceLevel++;
+            if (resistanceLevel < maxLevel)
+            {
+                GameManager.Instance.RemoveCoins((int)(CalculateResistancePrice()));
+                resistanceLevel++;
+            }
         }
+    }
+
+    public float CalculateDurabilityPrice()
+    {
+        return basePrice * Mathf.Pow(priceMultiplier, durabilityLevel);
+    }
+
+    public float CalculateWeaponPrice()
+    {
+        return basePrice * Mathf.Pow(priceMultiplier, weaponLevel);
+    }
+
+    public float CalculateResistancePrice()
+    {
+        return basePrice * Mathf.Pow(priceMultiplier, resistanceLevel);
     }
 }

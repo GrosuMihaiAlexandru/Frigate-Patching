@@ -15,6 +15,16 @@ public class GameEvents : MonoBehaviour
 
     public static Action<Player> OnPlayerDeath;
 
+    public static Action OnAmmoPickup;
+
+    public static void AmmoPickup()
+    {
+        if (OnAmmoPickup != null)
+        {
+            OnAmmoPickup();
+        }
+    }
+
     public static void PlayerUpdateHealth(Player player)
     {
         if (OnPlayerHealthChanged != null)

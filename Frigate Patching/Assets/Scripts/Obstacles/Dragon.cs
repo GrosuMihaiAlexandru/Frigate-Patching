@@ -61,6 +61,11 @@ public class Dragon : MonoBehaviour, IEnemy
         }
     }
 
+    public void TakeDamage(Cannonball cannonball)
+    {
+        health -= cannonball.CalculateDamage();
+    }
+
     public void DamagePlayer(Player player)
     {
         player.TakeDamage(damage);
