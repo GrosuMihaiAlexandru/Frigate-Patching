@@ -7,6 +7,13 @@ public class BadItem : MonoBehaviour, ICollectible
     public float value = 25;
     Player player;
 
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -18,9 +25,15 @@ public class BadItem : MonoBehaviour, ICollectible
 
     public void Collect()
     {
-        Destroy(gameObject);
+        animator.SetBool("Explode", true);
+        Invoke("DestroyObject", 1f);
         player.TakeDamage(value);
         player.MakePlayerInvincible(1f);
         GameEvents.PlayerUpdateHealth(player);
+    }
+
+    void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }

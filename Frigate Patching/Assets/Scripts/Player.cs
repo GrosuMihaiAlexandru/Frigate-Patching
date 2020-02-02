@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        GameManager.Instance.coins += GameManager.Instance.collectedCoins;
         isPlayerAlive = false;
         Destroy(gameObject);
         GameEvents.PlayerDied(this);

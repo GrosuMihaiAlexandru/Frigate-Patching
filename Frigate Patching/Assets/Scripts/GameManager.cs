@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        collectedCoins = 0;
         StopCoroutine(IncreaseGameSpeed());
         gameSpeed = startingSpeed;
         StartCoroutine(IncreaseGameSpeed());

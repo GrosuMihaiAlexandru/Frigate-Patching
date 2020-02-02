@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7411007840541064927}
   - component: {fileID: 8578288896708659645}
   - component: {fileID: 1471290354408748508}
+  - component: {fileID: 3685944778402110788}
   m_Layer: 0
   m_Name: BadItem
   m_TagString: Untagged
@@ -112,7 +113,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 4.26}
+    oldSize: {x: 2.5, y: 3.328125}
     newSize: {x: 1.8, y: 1.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -121,3 +122,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 1.8}
   m_EdgeRadius: 0
+--- !u!95 &3685944778402110788
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872752565137644498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c3ec617956e9ef4fb00539099fafff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
