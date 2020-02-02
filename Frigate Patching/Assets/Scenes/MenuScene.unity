@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2118892628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -617,78 +617,7 @@ PrefabInstance:
     - target: {fileID: 1397337599168864115, guid: 16bfcc9b63f1b56469391f15b779cdd9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229255394924126474, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078520046181320676, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 775.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3857701893198386988, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 775.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653935539688126803, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 775.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7815791460042337018, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -68.92508
-      objectReference: {fileID: 0}
-    - target: {fileID: 7815791460042337018, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -137.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600716495464919, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -68.92505
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600716495464919, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -137.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 7954717134153061012, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -68.92505
-      objectReference: {fileID: 0}
-    - target: {fileID: 7954717134153061012, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -137.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 2818146038438550049, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Upgrade Durability
-
-        Cost: 150'
-      objectReference: {fileID: 0}
-    - target: {fileID: 269149189809115764, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Upgrade Weapon
-
-        Cost: 150'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7500532140032863225, guid: 16bfcc9b63f1b56469391f15b779cdd9,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Upgrade Resistance
-
-        Cost: 150'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bfcc9b63f1b56469391f15b779cdd9, type: 3}
